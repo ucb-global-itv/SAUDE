@@ -19,12 +19,11 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
 	      <region id="rB2" left="17%" top="42%" width="60%" height="17%" zIndex="7"/> <!--Regi�o do bot�o Condition-->
 	      <region id="rB3" left="17%" top="59%" width="60%" height="17%" zIndex="7"/> <!--Regi�o do bot�o Service-->
 	      <region id="rB4" left="3%" top="1%" width="35%" height="10%" zIndex="0"/> <!--Regi�o do bot�o que abre o menu-->
-	      <region id="rB5" left="0%" top="0%" width="0%" height="0%" zIndex="0"/> <!--Regi�o do bot�o que fecha o aplicativo-->
+	      <region id="rB5" left="3%" top="90%" width="50%" height="10%" zIndex="7"/> <!--Regi�o do bot�o que fecha o aplicativo-->
 	      <region id="rB6" left="3%" top="85%" width="75%" height="10%" zIndex="7"/> <!--Regi�o do bot�o que habilita nova tela-->
 	      <region id="rT1" left="6%" top="2%" width="80%" height="15%" zIndex="7"/>
+	      <region id="rReturnButton" left="3%" top="90%" width="70%" height="10%" zIndex="7"/>
       </region>
-
-      <region id="rReturnButton" left="2%" top="90%" width="20%" height="100%" zIndex="7"/>
 
       <region id="rrightColMenu" left="83.5%" top="0" width="16.5%" height="100%" zIndex="7"> <!--Regi�o do menu esquerdo-->
             <region id="rgOpcao1" left="8%" top="5%"  width="70%" height="15%"/> <!--Regi�o do bot�o 1 do menu esquerdo-->
@@ -342,16 +341,12 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
   <media descriptor="dText4" id="Text4" src="txt/text2.txt"/>
   -->
   <media descriptor="dLateralBar" id="menulateralbar" src="img/patternmenubar.png"/>
-  <media descriptor="dBtStopApp" id="btnstopapp" src=""/>
+  <media descriptor="dBtStopApp" id="btnstopapp" src="img/exit_s.png"/>
   <media descriptor="dBtStartMenu" id="btnstartmenu" src="img/startmenu.png"/>
   <media descriptor="dBtDisease" id="btndisease" src="img/btndisease.png"/>
   <media descriptor="dBtCondition" id="btncondition" src="img/btncondition.png"/>
   <media descriptor="dBtService" id="btnservice" src="img/btnservice.png"/>
-  <media descriptor="dT1" id="t1" src="img/healthcare.png">
-    <property name="fontUri"/>
-    <property name="fontColor"/>
-    <property name="fontSize"/>
-  </media>
+  <media descriptor="dT1" id="t1" src="img/healthcare.png"/>
 
 <!-- medias do context1 (Doenças) -->
 
@@ -614,7 +609,6 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     <bind component="btnstopapp" role="onSelection">
     	<bindParam name="keyCode" value="YELLOW"/>
     </bind>
-
     <bind component="menulateralbar" role="stop"/>
     <bind component="btndisease" role="stop"/>
     <bind component="btncondition" role="stop"/>
