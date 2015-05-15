@@ -13,9 +13,9 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     	<region id="rText3" left="60%" top="60%" width="16.5%" height="40%" zIndex="0"/>
     	<region id="rVideo"  width="100%" height="100%" zIndex ="0" />
       <region id="rMainMenu" left="0%" top="0%" width="16.5%" height="100%" zIndex="7"> <!--Região do menu principal com as 3 opções-->>
-      	  <region id="rB1" left="17%" top="25%" width="60%" height="10%" zIndex="7"/> <!--Região do botão Desease-->
-	      <region id="rB2" left="17%" top="38%" width="60%" height="10%" zIndex="7"/> <!--Região do botão Condition-->
-	      <region id="rB3" left="17%" top="51%" width="60%" height="10%" zIndex="7"/> <!--Região do botão Service-->
+      	  <region id="rB1" left="17%" top="25%" width="58.78%" height="13.36%" zIndex="7"/> <!--Região do botão Desease-->
+	      <region id="rB2" left="17%" top="41.36%" width="58.48%" height="13.45%" zIndex="7"/> <!--Região do botão Condition-->
+	      <region id="rB3" left="17%" top="57.81%" width="58.48%" height="13.36%" zIndex="7"/> <!--Região do botão Service-->
 	      <region id="rB4" left="3%" top="1%" width="35%" height="10%" zIndex="0"/> <!--Região do botão que abre o menu-->
 	      <region id="rB5" left="0%" top="0%" width="0%" height="0%" zIndex="0"/> <!--Região do botão que fecha o aplicativo-->
 	      <region id="rB6" left="3%" top="85%" width="75%" height="10%" zIndex="7"/> <!--Região do botão que habilita nova tela-->
@@ -99,57 +99,140 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     <descriptor id="dBTN4" region="rBTN4" focusIndex="ixBTN4" focusBorderWidth="0"	moveUp="ixBTN2" moveDown="ixBTN2" moveRight="ixBTN3" moveLeft="ixBTN3" focusSrc="img/btnOtherIniciativesFocus.png" focusSelSrc="img/btndiseaseselect.png"/>
     
     <!--Descritores dos botões da subseção do menu 2-->
-    <descriptor id="dSubsectionOpt1" region="rSubsectionOpt1" focusIndex="ixSubsectionOpt1" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt9" moveDown="ixSubsectionOpt2" focusSrc="img/btnProgransFocus.png" focusSelSrc="img/btnPrograms.png"/>
-    <descriptor id="dSubsectionOpt2" region="rSubsectionOpt2" focusIndex="ixSubsectionOpt2" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt1" moveDown="ixSubsectionOpt3" focusSrc="img/btnSymptomsFocus.png" focusSelSrc="img/btnSymptoms.png"/>
-    <descriptor id="dSubsectionOpt3" region="rSubsectionOpt3" focusIndex="ixSubsectionOpt3" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt2" moveDown="ixSubsectionOpt4" focusSrc="img/btnDiabeticNeuroFocus.png" focusSelSrc="img/btnDiabeticNeuro.png"/>
-    <descriptor id="dSubsectionOpt4" region="rSubsectionOpt4" focusIndex="ixSubsectionOpt4" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt3" moveDown="ixSubsectionOpt5" focusSrc="img/btnFreePubMedFocus.png" focusSelSrc="img/btnFreePubMed.png"/>
-    <descriptor id="dSubsectionOpt5" region="rSubsectionOpt5" focusIndex="ixSubsectionOpt5" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt4" moveDown="ixSubsectionOpt6" focusSrc="img/btnHemoFocus.png" focusSelSrc="img/btnHemo.png"/>
-    <descriptor id="dSubsectionOpt6" region="rSubsectionOpt6" focusIndex="ixSubsectionOpt6" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt5" moveDown="ixSubsectionOpt7" focusSrc="img/btnChildrenHemoFocus.png" focusSelSrc="img/btnChildrenHemo.png"/>
-    <descriptor id="dSubsectionOpt7" region="rSubsectionOpt7" focusIndex="ixSubsectionOpt7" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt6" moveDown="ixSubsectionOpt8" focusSrc="img/btnGestacionalDiabetesFocus.png" focusSelSrc="img/btnGestacionalDiabetes.png"/>
-    <descriptor id="dSubsectionOpt8" region="rSubsectionOpt8" focusIndex="ixSubsectionOpt8" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt7" moveDown="ixSubsectionOpt9" focusSrc="img/btnGovernmentBeneFocus.png" focusSelSrc="img/btnGovernmentBene.png"/>
-    <descriptor id="dSubsectionOpt9" region="rSubsectionOpt9" focusIndex="ixSubsectionOpt9" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt8" moveDown="ixSubsectionOpt1" focusSrc="img/btnOtherIniciativesFocus.png" focusSelSrc="img/btnOtherIniciatives.png"/>
+    <descriptor id="dSubsectionOpt1" region="rSubsectionOpt1" focusIndex="ixSubsectionOpt1" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt9" moveDown="ixSubsectionOpt2" focusSrc="img/btnProgransFocus.png" focusSelSrc="img/btnPrograms.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dSubsectionOpt2" region="rSubsectionOpt2" focusIndex="ixSubsectionOpt2" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt1" moveDown="ixSubsectionOpt3" focusSrc="img/btnSymptomsFocus.png" focusSelSrc="img/btnSymptoms.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dSubsectionOpt3" region="rSubsectionOpt3" focusIndex="ixSubsectionOpt3" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt2" moveDown="ixSubsectionOpt4" focusSrc="img/btnDiabeticNeuroFocus.png" focusSelSrc="img/btnDiabeticNeuro.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dSubsectionOpt4" region="rSubsectionOpt4" focusIndex="ixSubsectionOpt4" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt3" moveDown="ixSubsectionOpt5" focusSrc="img/btnFreePubMedFocus.png" focusSelSrc="img/btnFreePubMed.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dSubsectionOpt5" region="rSubsectionOpt5" focusIndex="ixSubsectionOpt5" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt4" moveDown="ixSubsectionOpt6" focusSrc="img/btnHemoFocus.png" focusSelSrc="img/btnHemo.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dSubsectionOpt6" region="rSubsectionOpt6" focusIndex="ixSubsectionOpt6" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt5" moveDown="ixSubsectionOpt7" focusSrc="img/btnChildrenHemoFocus.png" focusSelSrc="img/btnChildrenHemo.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dSubsectionOpt7" region="rSubsectionOpt7" focusIndex="ixSubsectionOpt7" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt6" moveDown="ixSubsectionOpt8" focusSrc="img/btnGestacionalDiabetesFocus.png" focusSelSrc="img/btnGestacionalDiabetes.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dSubsectionOpt8" region="rSubsectionOpt8" focusIndex="ixSubsectionOpt8" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt7" moveDown="ixSubsectionOpt9" focusSrc="img/btnGovernmentBeneFocus.png" focusSelSrc="img/btnGovernmentBene.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dSubsectionOpt9" region="rSubsectionOpt9" focusIndex="ixSubsectionOpt9" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt8" moveDown="ixSubsectionOpt1" focusSrc="img/btnOtherIniciativesFocus.png" focusSelSrc="img/btnOtherIniciatives.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
     
     <!--Descritores das caixas com as descrições referentes a subseção-->
-    <descriptor id="dBoxSymptoms" region="rBoxSymptoms"/>
-   	<descriptor id="dBoxFreeMed" region="rBoxFreeMed"/>
-   	<descriptor id="dBoxGovBene" region="rBoxGovBene"/>
-   	<descriptor id="dBoxGestDiab" region="rBoxGestDiab"/>
-   	<descriptor id="dBoxHemo" region="rBoxHemo"/>
-   	<descriptor id="dBoxChildHemo" region="rBoxChildHemo"/>
-   	<descriptor id="dBoxDiabNeur" region="rBoxDiabNeur"/>
-   	<descriptor id="dBoxPrograms" region="rBoxPrograms"/>
-   	<descriptor id="dBoxOtherIni" region="rBoxOtherIni"/>
+    <descriptor id="dBoxSymptoms" region="rBoxSymptoms">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+   	<descriptor id="dBoxFreeMed" region="rBoxFreeMed">
+		<descriptorParam name="transparency" value="0.3"/>   	
+	</descriptor>
+   	<descriptor id="dBoxGovBene" region="rBoxGovBene">
+		<descriptorParam name="transparency" value="0.3"/>   	
+	</descriptor>
+   	<descriptor id="dBoxGestDiab" region="rBoxGestDiab">
+		<descriptorParam name="transparency" value="0.3"/>   	
+	</descriptor>
+   	<descriptor id="dBoxHemo" region="rBoxHemo">
+		<descriptorParam name="transparency" value="0.3"/>	   	
+	</descriptor>	
+   	<descriptor id="dBoxChildHemo" region="rBoxChildHemo">
+		<descriptorParam name="transparency" value="0.3"/>   	
+	</descriptor>
+   	<descriptor id="dBoxDiabNeur" region="rBoxDiabNeur">
+		<descriptorParam name="transparency" value="0.3"/>	   	
+	</descriptor>
+   	<descriptor id="dBoxPrograms" region="rBoxPrograms">
+		<descriptorParam name="transparency" value="0.3"/>   	
+	</descriptor>
+   	<descriptor id="dBoxOtherIni" region="rBoxOtherIni">
+		<descriptorParam name="transparency" value="0.3"/>   	
+	</descriptor>
+   		
     
     <!--Descritores dos botões do menu principal com 3 opções-->
-	<descriptor id="dBtStartMenu" 	region="rB4"/>
-	<descriptor id="dBtStopApp" 	region="rB5"/>
-    <descriptor id="dBtDisease" 	region="rB1" focusIndex="ixBtDisease" focusBorderWidth="0"	moveUp="ixBtService" moveDown="ixBtCondition" moveRight="1" focusSrc="img/btndiseasefocus.png" focusSelSrc="img/btndisease.png"/>
-    <descriptor id="dBtCondition" 	region="rB2" focusIndex="ixBtCondition" focusBorderWidth="0" moveUp="ixBtDisease" moveDown="ixBtService" moveRight="1" focusSrc="img/btnconditionfocus.png" focusSelSrc="img/btncondition.png"/>
-    <descriptor id="dBtService" 	region="rB3" focusIndex="ixBtService" focusBorderWidth="0"	moveUp="ixBtCondition" moveDown="ixBtNewScreen" moveRight="1" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnservice.png"/>
-   <descriptor id="dBtNewScreen" 	region="rB6" focusIndex="ixBtNewScreen" focusBorderWidth="0"	moveUp="ixBtService" moveDown="ixBtDisease" moveRight="1" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnservice.png"/>
-    <descriptor id="dT1" region="rT1"/>
-    
+	<descriptor id="dBtStartMenu" 	region="rB4">
+		<descriptorParam name="transparency" value="0.3"/>	
+	</descriptor>
+		
+	<descriptor id="dBtStopApp" 	region="rB5">
+		<descriptorParam name="transparency" value="0.3"/>
+	</descriptor>
+    <descriptor id="dBtDisease" 	region="rB1" focusIndex="ixBtDisease" focusBorderWidth="0"	moveUp="ixBtService" moveDown="ixBtCondition" moveRight="1" focusSrc="img/btndiseasefocus.png" focusSelSrc="img/btndisease.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dBtCondition" 	region="rB2" focusIndex="ixBtCondition" focusBorderWidth="0" moveUp="ixBtDisease" moveDown="ixBtService" moveRight="1" focusSrc="img/btnconditionfocus.png" focusSelSrc="img/btncondition.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dBtService" 	region="rB3" focusIndex="ixBtService" focusBorderWidth="0"	moveUp="ixBtCondition" moveDown="ixBtNewScreen" moveRight="1" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnservice.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dBtNewScreen" 	region="rB6" focusIndex="ixBtNewScreen" focusBorderWidth="0"	moveUp="ixBtService" moveDown="ixBtDisease" moveRight="1" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnservice.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dT1" region="rT1">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    	
     <!--Descritores dos botões do menu esquerdo com 5 opções-->
 	<descriptor id="dFundoMenu" region="rrightColMenu">
-	<descriptorParam name="transparency" value="1"/>
+		<descriptorParam name="transparency" value="1"/>
     </descriptor>
- 	<descriptor id="dOpcao11" region="rgOpcao1" focusIndex="1" moveDown="2" moveUp="5" moveLeft="ixSubsectionOpt1" focusBorderWidth="0" focusSrc="img/btnDiabetesFocus.png" focusSelSrc="img/btnDiabetes.png"/>
-    <descriptor id="dOpcao12" region="rgOpcao2" focusIndex="2" moveDown="3" moveUp="1" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnHypertensionFocus.png" focusSelSrc="img/btnHypertension.png"/>
-    <descriptor id="dOpcao13" region="rgOpcao3" focusIndex="3" moveDown="4" moveUp="2" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btndiseasefocus.png" focusSelSrc="img/btndiseaseselect.png"/>
-    <descriptor id="dOpcao14" region="rgOpcao4" focusIndex="4" moveDown="5" moveUp="3" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btndiseasefocus.png" focusSelSrc="img/btndiseaseselect.png"/> 
-    <descriptor id="dOpcao15" region="rgOpcao5" focusIndex="5" moveDown="1" moveUp="4" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btndiseasefocus.png" focusSelSrc="img/btndiseaseselect.png"/>
     
-    <descriptor id="dOpcao21" region="rgOpcao1" focusIndex="1" moveDown="2" moveUp="5" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnconditionfocus.png" focusSelSrc="img/btnconditionselect.png"/>
-    <descriptor id="dOpcao22" region="rgOpcao2" focusIndex="2" moveDown="3" moveUp="1" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnconditionfocus.png" focusSelSrc="img/btnconditionselect.png"/>
-    <descriptor id="dOpcao23" region="rgOpcao3" focusIndex="3" moveDown="4" moveUp="2" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnconditionfocus.png" focusSelSrc="img/btnconditionselect.png"/>
-    <descriptor id="dOpcao24" region="rgOpcao4" focusIndex="4" moveDown="5" moveUp="3" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnconditionfocus.png" focusSelSrc="img/btnconditionselect.png"/> 
-    <descriptor id="dOpcao25" region="rgOpcao5" focusIndex="5" moveDown="1" moveUp="4" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnconditionfocus.png" focusSelSrc="img/btnconditionselect.png"/>
-    
-    <descriptor id="dOpcao31" region="rgOpcao1" focusIndex="1" moveDown="2" moveUp="5" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnserviceselect.png"/>
-    <descriptor id="dOpcao32" region="rgOpcao2" focusIndex="2" moveDown="3" moveUp="1" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnserviceselect.png"/>
-    <descriptor id="dOpcao33" region="rgOpcao3" focusIndex="3" moveDown="4" moveUp="2" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnserviceselect.png"/>
-    <descriptor id="dOpcao34" region="rgOpcao4" focusIndex="4" moveDown="5" moveUp="3" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnserviceselect.png"/> 
-    <descriptor id="dOpcao35" region="rgOpcao5" focusIndex="5" moveDown="1" moveUp="4" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnserviceselect.png"/>           
+ 	<descriptor id="dOpcao11" region="rgOpcao1" focusIndex="1" moveDown="2" moveUp="5" moveLeft="ixSubsectionOpt1" focusBorderWidth="0" focusSrc="img/btnDiabetesFocus.png" focusSelSrc="img/btnDiabetes.png">
+		<descriptorParam name="transparency" value="0.3"/>		 	
+	</descriptor>
+    <descriptor id="dOpcao12" region="rgOpcao2" focusIndex="2" moveDown="3" moveUp="1" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnHypertensionFocus.png" focusSelSrc="img/btnHypertension.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dOpcao13" region="rgOpcao3" focusIndex="3" moveDown="4" moveUp="2" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btndiseasefocus.png" focusSelSrc="img/btndiseaseselect.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dOpcao14" region="rgOpcao4" focusIndex="4" moveDown="5" moveUp="3" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btndiseasefocus.png" focusSelSrc="img/btndiseaseselect.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dOpcao15" region="rgOpcao5" focusIndex="5" moveDown="1" moveUp="4" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btndiseasefocus.png" focusSelSrc="img/btndiseaseselect.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+
+    <descriptor id="dOpcao21" region="rgOpcao1" focusIndex="1" moveDown="2" moveUp="5" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnconditionfocus.png" focusSelSrc="img/btnconditionselect.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dOpcao22" region="rgOpcao2" focusIndex="2" moveDown="3" moveUp="1" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnconditionfocus.png" focusSelSrc="img/btnconditionselect.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dOpcao23" region="rgOpcao3" focusIndex="3" moveDown="4" moveUp="2" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnconditionfocus.png" focusSelSrc="img/btnconditionselect.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dOpcao24" region="rgOpcao4" focusIndex="4" moveDown="5" moveUp="3" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnconditionfocus.png" focusSelSrc="img/btnconditionselect.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dOpcao25" region="rgOpcao5" focusIndex="5" moveDown="1" moveUp="4" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnconditionfocus.png" focusSelSrc="img/btnconditionselect.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    	
+    <descriptor id="dOpcao31" region="rgOpcao1" focusIndex="1" moveDown="2" moveUp="5" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnserviceselect.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dOpcao32" region="rgOpcao2" focusIndex="2" moveDown="3" moveUp="1" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnserviceselect.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dOpcao33" region="rgOpcao3" focusIndex="3" moveDown="4" moveUp="2" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnserviceselect.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dOpcao34" region="rgOpcao4" focusIndex="4" moveDown="5" moveUp="3" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnserviceselect.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
+    <descriptor id="dOpcao35" region="rgOpcao5" focusIndex="5" moveDown="1" moveUp="4" moveLeft="ixBtDisease" focusBorderWidth="0" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnserviceselect.png">
+		<descriptorParam name="transparency" value="0.3"/>    	
+    </descriptor>
   </descriptorBase>
 
   <connectorBase>
