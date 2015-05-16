@@ -15,9 +15,9 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     	<region id="rVideo"  width="100%" height="100%" zIndex ="0" />
 
       <region id="rMainMenu" left="0%" top="0%" width="20%" height="100%" zIndex="7"> <!--Regiï¿½o do menu principal com as 3 opï¿½ï¿½es-->>
-      	  <region id="rB1" left="17%" top="25%" width="60%" height="17%" zIndex="7"/> <!--Regiï¿½o do botï¿½o Desease-->
-	      <region id="rB2" left="17%" top="42%" width="60%" height="17%" zIndex="7"/> <!--Regiï¿½o do botï¿½o Condition-->
-	      <region id="rB3" left="17%" top="59%" width="60%" height="17%" zIndex="7"/> <!--Regiï¿½o do botï¿½o Service-->
+      	 <region id="rB1" left="17%" top="25%" width="58.78%" height="13.36%" zIndex="7"/> <!--Região do botão Desease-->
+	      <region id="rB2" left="17%" top="41.36%" width="58.48%" height="13.45%" zIndex="7"/> <!--Região do botão Condition-->
+	      <region id="rB3" left="17%" top="57.81%" width="58.48%" height="13.36%" zIndex="7"/> <!--Região do botão Service-->
 	      <region id="rB4" left="3%" top="1%" width="35%" height="10%" zIndex="0"/> <!--Regiï¿½o do botï¿½o que abre o menu-->
 	      <region id="rB5" left="0%" top="0%" width="0%" height="0%" zIndex="0"/> <!--Regiï¿½o do botï¿½o que fecha o aplicativo-->
 	      <region id="rB6" left="3%" top="85%" width="75%" height="10%" zIndex="7"/> <!--Regiï¿½o do botï¿½o que habilita nova tela-->
@@ -42,9 +42,10 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
       	<region id="rSubsectionOpt6" right="0%" top="54%" width="40%" height="10%" zIndex ="7"/>
       	<region id="rSubsectionOpt7" right="0%" top="64%" width="40%" height="10%" zIndex ="7"/>
       	<region id="rSubsectionOpt8" right="0%" top="74%" width="40%" height="10%" zIndex ="7"/>
+      	<region id="rSubsectionOpt9" right="0%" top="84%" width="40%" height="10%" zIndex ="7"/>
       </region>
 
-      <region id="rBoxes" left="25%" top="0%" width="50%" height="100%">
+      <region id="rBoxes" left="37%" top="0%" width="50%" height="100%">
 		<region id="rBoxSymptoms" right="0%" top="2%" width="60%" height="40%" zIndex ="10"/>
 		<region id="rBoxFreeMed" right="0%" top="2%" width="60%" height="40%" zIndex ="10"/>
 		<region id="rBoxGovBene" right="0%" top="2%" width="60%" height="40%" zIndex ="10"/>
@@ -111,7 +112,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     </descriptor>
 
     <!--Descritores dos botï¿½es da subseï¿½ï¿½o do menu 2-->
-    <descriptor id="dSubsectionOpt1" region="rSubsectionOpt1" focusIndex="ixSubsectionOpt1" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt8" moveDown="ixSubsectionOpt2" focusSrc="img/btnSymptomsFocus.png" focusSelSrc="img/btnSymptoms.png">
+    <descriptor id="dSubsectionOpt1" region="rSubsectionOpt1" focusIndex="ixSubsectionOpt1" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt9" moveDown="ixSubsectionOpt2" focusSrc="img/btnSymptomsFocus.png" focusSelSrc="img/btnSymptoms.png">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
     <descriptor id="dSubsectionOpt2" region="rSubsectionOpt2" focusIndex="ixSubsectionOpt2" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt1" moveDown="ixSubsectionOpt3" focusSrc="img/btnFreePubMedFocus.png" focusSelSrc="img/btnFreePubMed.png">
@@ -123,16 +124,19 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     <descriptor id="dSubsectionOpt4" region="rSubsectionOpt4" focusIndex="ixSubsectionOpt4" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt3" moveDown="ixSubsectionOpt5" focusSrc="img/btnGestacionalDiabetesFocus.png" focusSelSrc="img/btnGestacionalDiabetes.png">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
-    <descriptor id="dSubsectionOpt5" region="rSubsectionOpt5" focusIndex="ixSubsectionOpt5" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt4" moveDown="ixSubsectionOpt6" focusSrc="img/btnChildrenHemoFocus.png" focusSelSrc="img/btnChildrenHemo.png">
+    <descriptor id="dSubsectionOpt5" region="rSubsectionOpt5" focusIndex="ixSubsectionOpt5" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt4" moveDown="ixSubsectionOpt6" focusSrc="img/btnHemoFocus.png" focusSelSrc="img/btnHemo.png">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
-    <descriptor id="dSubsectionOpt6" region="rSubsectionOpt6" focusIndex="ixSubsectionOpt6" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt5" moveDown="ixSubsectionOpt7" focusSrc="img/btnDiabeticNeuroFocus.png" focusSelSrc="img/btnDiabeticNeuro.png">
+    <descriptor id="dSubsectionOpt6" region="rSubsectionOpt6" focusIndex="ixSubsectionOpt6" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt5" moveDown="ixSubsectionOpt7" focusSrc="img/btnChildrenHemoFocus.png" focusSelSrc="img/btnChildrenHemo.png">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
-    <descriptor id="dSubsectionOpt7" region="rSubsectionOpt7" focusIndex="ixSubsectionOpt7" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt6" moveDown="ixSubsectionOpt8" focusSrc="img/btnProgramsFocus.png" focusSelSrc="img/btnPrograms.png">
+    <descriptor id="dSubsectionOpt7" region="rSubsectionOpt7" focusIndex="ixSubsectionOpt7" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt6" moveDown="ixSubsectionOpt8" focusSrc="img/btnDiabeticNeuroFocus.png" focusSelSrc="img/btnDiabeticNeuro.png">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
-    <descriptor id="dSubsectionOpt8" region="rSubsectionOpt8" focusIndex="ixSubsectionOpt8" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt7" moveDown="ixSubsectionOpt1" focusSrc="img/btnOtherIniciativesFocus.png" focusSelSrc="img/btnOtherIniciatives.png">
+    <descriptor id="dSubsectionOpt8" region="rSubsectionOpt8" focusIndex="ixSubsectionOpt8" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt7" moveDown="ixSubsectionOpt9" focusSrc="img/btnProgramsFocus.png" focusSelSrc="img/btnPrograms.png">
+    	<descriptorParam name="transparency" value="0.3"/>
+    </descriptor>
+    <descriptor id="dSubsectionOpt9" region="rSubsectionOpt9" focusIndex="ixSubsectionOpt9" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt8" moveDown="ixSubsectionOpt1" focusSrc="img/btnOtherIniciativesFocus.png" focusSelSrc="img/btnOtherIniciatives.png">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
 
@@ -173,16 +177,16 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
 	<descriptor id="dBtStopApp" 	region="rB5">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
-    <descriptor id="dBtDisease" 	region="rB1" focusIndex="ixBtDisease" focusBorderWidth="0"	moveUp="ixBtService" moveDown="ixBtCondition" moveRight="1" focusSrc="img/btndiseasefocus.png" focusSelSrc="img/btndiseaseselect.png">
+    <descriptor id="dBtDisease" 	region="rB1" focusIndex="ixBtDisease" focusBorderWidth="0"	moveUp="ixBtService" moveDown="ixBtCondition" moveRight="1" focusSrc="img/btndiseasefocus.png" focusSelSrc="img/btndisease.png">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
-    <descriptor id="dBtCondition" 	region="rB2" focusIndex="ixBtCondition" focusBorderWidth="0" moveUp="ixBtDisease" moveDown="ixBtService" moveRight="1" focusSrc="img/btnconditionfocus.png" focusSelSrc="img/btnconditionselect.png">
+    <descriptor id="dBtCondition" 	region="rB2" focusIndex="ixBtCondition" focusBorderWidth="0" moveUp="ixBtDisease" moveDown="ixBtService" moveRight="1" focusSrc="img/btnconditionfocus.png" focusSelSrc="img/btncondition.png">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
-    <descriptor id="dBtService" 	region="rB3" focusIndex="ixBtService" focusBorderWidth="0"	moveUp="ixBtCondition" moveDown="ixBtNewScreen" moveRight="1" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnserviceselect.png">
+    <descriptor id="dBtService" 	region="rB3" focusIndex="ixBtService" focusBorderWidth="0"	moveUp="ixBtCondition" moveDown="ixBtNewScreen" moveRight="1" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnservice.png">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
-    <descriptor id="dBtNewScreen" 	region="rB6" focusIndex="ixBtNewScreen" focusBorderWidth="0"	moveUp="ixBtService" moveDown="ixBtDisease" moveRight="1" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnserviceselect.png">
+    <descriptor id="dBtNewScreen" 	region="rB6" focusIndex="ixBtNewScreen" focusBorderWidth="0"	moveUp="ixBtService" moveDown="ixBtDisease" moveRight="1" focusSrc="img/btnservicefocus.png" focusSelSrc="img/btnservice.png">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
     <descriptor id="dT1" region="rT1">
@@ -195,11 +199,11 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     </descriptor>
 
  	<descriptor id="dOpcao11" region="rgOpcao1" focusIndex="1" moveDown="2" moveUp="5" moveLeft="ixSubsectionOpt1" focusBorderWidth="0"
- 	focusSrc="img/btnDiabetesFocus.png" focusSelSrc="img/btndiseaseselect.png">
+ 	focusSrc="img/btnDiabetesFocus.png" focusSelSrc="img/btnDiabetes.png">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
     <descriptor id="dOpcao12" region="rgOpcao2" focusIndex="2" moveDown="3" moveUp="1" moveLeft="ixBtDisease" focusBorderWidth="0"
-    focusSrc="img/btnHypertensionFocus.png" focusSelSrc="img/btndiseaseselect.png">
+    focusSrc="img/btnHypertensionFocus.png" focusSelSrc="img/btnHypertension.png">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
 
@@ -366,11 +370,12 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
 	  <media descriptor="dSubsectionOpt6" id="SubsectionOpt6" src="img/btnChildrenHemo.png"/>
 	  <media descriptor="dSubsectionOpt7" id="SubsectionOpt7" src="img/btnDiabeticNeuro.png"/>
 	  <media descriptor="dSubsectionOpt8" id="SubsectionOpt8" src="img/btnPrograms.png"/>
+	  <media descriptor="dSubsectionOpt9" id="SubsectionOpt9" src="img/btnOtherIniciatives.png"/>
 
-	  <media descriptor="dBoxSymptoms" id="boxSubsectionOpt1" src="img/BOX_symptoms.png"/>
+	  <media descriptor="dBoxSymptoms" id="boxSubsectionOpt1" src="img/Box_static_simptoms_03.png"/>
 	  <media descriptor="dBoxFreeMed" id="boxSubsectionOpt2" src="img/Free_public_medicine_03.png"/>
 	  <media descriptor="dBoxGovBene" id="boxSubsectionOpt3" src="img/BOX_Government_benefits_03.png"/>
-	  <media descriptor="dBoxGestDiab" id="boxSubsectionOpt4" src="img/BOX_gestational_diabetes_06.png"/>
+	  <media descriptor="dBoxGestDiab" id="boxSubsectionOpt4" src="img/BOX_gestational_diabetes_03.png"/>
 	  <media descriptor="dBoxHemo" id="boxSubsectionOpt5" src="img/Hemodialysis_03.png"/>
 	  <media descriptor="dBoxChildHemo" id="boxSubsectionOpt6" src="img/BOX_children_hemodialysis_06.png"/>
 	  <media descriptor="dBoxDiabNeur" id="boxSubsectionOpt7" src="img/BOX_diabetic_neuropathies_06.png"/>
@@ -389,6 +394,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
   		<bind component="SubsectionOpt6" role="start"/>
   		<bind component="SubsectionOpt7" role="start"/>
   		<bind component="SubsectionOpt8" role="start"/>
+  		<bind component="SubsectionOpt9" role="start"/>
   		<bind component="opcao11" role="stop"/>
   		<bind component="opcao12" role="stop"/>
   	</link>
@@ -625,6 +631,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     <bind component="SubsectionOpt6" role="stop"/>
     <bind component="SubsectionOpt7" role="stop"/>
     <bind component="SubsectionOpt8" role="stop"/>
+    <bind component="SubsectionOpt9" role="stop"/>
 	<bind component="boxSubsectionOpt1" role="stop"/>
     <bind component="boxSubsectionOpt2" role="stop"/>
     <bind component="boxSubsectionOpt3" role="stop"/>
@@ -633,6 +640,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     <bind component="boxSubsectionOpt6" role="stop"/>
     <bind component="boxSubsectionOpt7" role="stop"/>
     <bind component="boxSubsectionOpt8" role="stop"/>
+    <bind component="boxSubsectionOpt9" role="stop"/>
     <bind component="cMenu2" role="stop"/>
     <bind component="cMenu3" role="stop"/>
     <bind component="btnreturn1" role="stop"/>
@@ -657,6 +665,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     <bind component="SubsectionOpt6" role="stop"/>
     <bind component="SubsectionOpt7" role="stop"/>
     <bind component="SubsectionOpt8" role="stop"/>
+    <bind component="SubsectionOpt9" role="stop"/>
 	<bind component="boxSubsectionOpt1" role="stop"/>
     <bind component="boxSubsectionOpt2" role="stop"/>
     <bind component="boxSubsectionOpt3" role="stop"/>
@@ -665,6 +674,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     <bind component="boxSubsectionOpt6" role="stop"/>
     <bind component="boxSubsectionOpt7" role="stop"/>
     <bind component="boxSubsectionOpt8" role="stop"/>
+    <bind component="boxSubsectionOpt9" role="stop"/>
     <bind component="cMenu2" role="stop"/>
     <bind component="cMenu3" role="stop"/>
   </link>
