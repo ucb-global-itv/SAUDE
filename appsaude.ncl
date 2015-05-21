@@ -14,23 +14,23 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     	<region id="rText3" left="60%" top="60%" width="16.5%" height="40%" zIndex="0"/>
     	<region id="rVideo"  width="100%" height="100%" zIndex ="0" />
 
-      <region id="rMainMenu" left="0%" top="0%" width="20%" height="100%" zIndex="7"> <!--Regi�o do menu principal com as 3 op��es-->>
-      	 <region id="rB1" left="17%" top="25%" width="58.78%" height="13.36%" zIndex="7"/> <!--Regi�o do bot�o Desease-->
-	      <region id="rB2" left="17%" top="41.36%" width="58.48%" height="13.45%" zIndex="7"/> <!--Regi�o do bot�o Condition-->
-	      <region id="rB3" left="17%" top="57.81%" width="58.48%" height="13.36%" zIndex="7"/> <!--Regi�o do bot�o Service-->
-	      <region id="rB4" left="3%" top="1%" width="35%" height="10%" zIndex="0"/> <!--Regi�o do bot�o que abre o menu-->
-	      <region id="rB5" left="0%" top="0%" width="0%" height="0%" zIndex="0"/> <!--Regi�o do bot�o que fecha o aplicativo-->
-	      <region id="rB6" left="3%" top="85%" width="75%" height="10%" zIndex="7"/> <!--Regi�o do bot�o que habilita nova tela-->
+      <region id="rMainMenu" left="0%" top="0%" width="20%" height="100%" zIndex="7"> <!--Regiï¿½o do menu principal com as 3 opï¿½ï¿½es-->>
+      	 <region id="rB1" left="17%" top="25%" width="58.78%" height="13.36%" zIndex="7"/> <!--Região do botão Desease-->
+	      <region id="rB2" left="17%" top="41.36%" width="58.48%" height="13.45%" zIndex="7"/> <!--Região do botão Condition-->
+	      <region id="rB3" left="17%" top="57.81%" width="58.48%" height="13.36%" zIndex="7"/> <!--Região do botão Service-->
+	      <region id="rB4" left="3%" top="1%" width="35%" height="10%" zIndex="0"/> <!--Regiï¿½o do botï¿½o que abre o menu-->
+	      <region id="rB5" left="0%" top="0%" width="0%" height="0%" zIndex="0"/> <!--Regiï¿½o do botï¿½o que fecha o aplicativo-->
+	      <region id="rB6" left="3%" top="85%" width="75%" height="10%" zIndex="7"/> <!--Regiï¿½o do botï¿½o que habilita nova tela-->
 	      <region id="rT1" left="6%" top="2%" width="80%" height="15%" zIndex="7"/>
 	      <region id="rReturnButton" left="15%" top="90%" width="46%" height="6%" zIndex="7"/>
       </region>
 
-      <region id="rrightColMenu" left="83.5%" top="0" width="16.5%" height="100%" zIndex="7"> <!--Regi�o do menu esquerdo-->
-            <region id="rgOpcao1" left="8%" top="5%"  width="70%" height="15%"/> <!--Regi�o do bot�o 1 do menu esquerdo-->
-            <region id="rgOpcao2" left="8%" top="20%" width="70%" height="15%"/> <!--Regi�o do bot�o 2 do menu esquerdo-->
-            <region id="rgOpcao3" left="8%" top="35%" width="70%" height="15%"/> <!--Regi�o do bot�o 3 do menu esquerdo-->
-            <region id="rgOpcao4" left="8%" top="50%" width="70%" height="15%"/> <!--Regi�o do bot�o 4 do menu esquerdo-->
-            <region id="rgOpcao5" left="8%" top="65%" width="70%" height="15%"/> <!--Regi�o do bot�o 5 do menu esquerdo-->
+      <region id="rrightColMenu" left="83.5%" top="0" width="16.5%" height="100%" zIndex="7"> <!--Regiï¿½o do menu esquerdo-->
+            <region id="rgOpcao1" left="8%" top="5%"  width="70%" height="15%"/> <!--Regiï¿½o do botï¿½o 1 do menu esquerdo-->
+            <region id="rgOpcao2" left="8%" top="20%" width="70%" height="15%"/> <!--Regiï¿½o do botï¿½o 2 do menu esquerdo-->
+            <region id="rgOpcao3" left="8%" top="35%" width="70%" height="15%"/> <!--Regiï¿½o do botï¿½o 3 do menu esquerdo-->
+            <region id="rgOpcao4" left="8%" top="50%" width="70%" height="15%"/> <!--Regiï¿½o do botï¿½o 4 do menu esquerdo-->
+            <region id="rgOpcao5" left="8%" top="65%" width="70%" height="15%"/> <!--Regiï¿½o do botï¿½o 5 do menu esquerdo-->
       </region>
 
       <region id="rSubsectionMenu" left="75%" top="0%" width="20%" height="100%" zIndex ="7">
@@ -111,7 +111,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     	<descriptorParam name="transparency" value="1"/>
     </descriptor>
 
-    <!--Descritores dos bot�es da subse��o do menu 2-->
+    <!--Descritores dos botï¿½es da subseï¿½ï¿½o do menu 2-->
     <descriptor id="dSubsectionOpt1" region="rSubsectionOpt1" focusIndex="ixSubsectionOpt1" focusBorderWidth="0" moveRight="1" moveUp="ixSubsectionOpt9" moveDown="ixSubsectionOpt2" focusSrc="img/btnSymptomsFocus.png" focusSelSrc="img/btnSymptoms.png">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
@@ -141,7 +141,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     </descriptor>
 
 
-    <!--Descritores das caixas com as descri��es referentes a subse��o-->
+    <!--Descritores das caixas com as descriï¿½ï¿½es referentes a subseï¿½ï¿½o-->
     <descriptor id="dBoxSymptoms" region="rBoxSymptoms">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
@@ -170,7 +170,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
 
-    <!--Descritores dos bot�es do menu principal com 3 op��es-->
+    <!--Descritores dos botï¿½es do menu principal com 3 opï¿½ï¿½es-->
 	<descriptor id="dBtStartMenu" 	region="rB4">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
@@ -193,7 +193,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
     	<descriptorParam name="transparency" value="0.3"/>
     </descriptor>
 
-    <!--Descritores dos bot�es do menu esquerdo com 5 op��es-->
+    <!--Descritores dos botï¿½es do menu esquerdo com 5 opï¿½ï¿½es-->
 	<descriptor id="dFundoMenu" region="rrightColMenu">
 		<descriptorParam name="transparency" value="1"/>
     </descriptor>
@@ -352,7 +352,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
   <media descriptor="dBtService" id="btnservice" src="img/btnservice.png"/>
   <media descriptor="dT1" id="t1" src="img/healthcare.png"/>
 
-<!-- medias do context1 (Doenças) -->
+<!-- medias do context1 (DoenÃ§as) -->
 
 	  <media id="opcao11" src="img/btnDiabetes.png" descriptor="dOpcao11"/>
 	  <media id="opcao12" src="img/btnHypertension.png" descriptor="dOpcao12"/>
@@ -436,7 +436,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
 	  	<bind component="boxSubsectionOpt9" role="stop"/>
 	</link>
   	<link id="ShowText14" xconnector="onSelectionStartStop">
-	  	<bind component="SubsectionOpt3" role="onSelection"/>
+	  	<bind component="SubsectionOpt4" role="onSelection"/>
 	  	<bind component="boxSubsectionOpt1" role="stop"/>
 	  	<bind component="boxSubsectionOpt2" role="stop"/>
 	  	<bind component="boxSubsectionOpt3" role="stop"/>
@@ -448,7 +448,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
 	  	<bind component="boxSubsectionOpt9" role="stop"/>
 	</link>
   	<link id="ShowText15" xconnector="onSelectionStartStop">
-	  	<bind component="SubsectionOpt3" role="onSelection"/>
+	  	<bind component="SubsectionOpt5" role="onSelection"/>
 	  	<bind component="boxSubsectionOpt1" role="stop"/>
 	  	<bind component="boxSubsectionOpt2" role="stop"/>
 	  	<bind component="boxSubsectionOpt3" role="stop"/>
@@ -460,7 +460,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
 	  	<bind component="boxSubsectionOpt9" role="stop"/>
 	</link>
   	<link id="ShowText16" xconnector="onSelectionStartStop">
-	  	<bind component="SubsectionOpt3" role="onSelection"/>
+	  	<bind component="SubsectionOpt6" role="onSelection"/>
 	  	<bind component="boxSubsectionOpt1" role="stop"/>
 	  	<bind component="boxSubsectionOpt2" role="stop"/>
 	  	<bind component="boxSubsectionOpt3" role="stop"/>
@@ -472,7 +472,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
 	  	<bind component="boxSubsectionOpt9" role="stop"/>
 	</link>
   	<link id="ShowText17" xconnector="onSelectionStartStop">
-	  	<bind component="SubsectionOpt3" role="onSelection"/>
+	  	<bind component="SubsectionOpt7" role="onSelection"/>
 	  	<bind component="boxSubsectionOpt1" role="stop"/>
 	  	<bind component="boxSubsectionOpt2" role="stop"/>
 	  	<bind component="boxSubsectionOpt3" role="stop"/>
@@ -484,7 +484,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
 	  	<bind component="boxSubsectionOpt9" role="stop"/>
 	</link>
   	<link id="ShowText18" xconnector="onSelectionStartStop">
-	  	<bind component="SubsectionOpt3" role="onSelection"/>
+	  	<bind component="SubsectionOpt8" role="onSelection"/>
 	  	<bind component="boxSubsectionOpt1" role="stop"/>
 	  	<bind component="boxSubsectionOpt2" role="stop"/>
 	  	<bind component="boxSubsectionOpt3" role="stop"/>
@@ -496,7 +496,7 @@ http://www.ncl.org.br/NCL3.0/profiles/NCL30EDTV.xsd">
 	  	<bind component="boxSubsectionOpt9" role="stop"/>
 	</link>
   	<link id="ShowText19" xconnector="onSelectionStartStop">
-	  	<bind component="SubsectionOpt3" role="onSelection"/>
+	  	<bind component="SubsectionOpt9" role="onSelection"/>
 	  	<bind component="boxSubsectionOpt1" role="stop"/>
 	  	<bind component="boxSubsectionOpt2" role="stop"/>
 	  	<bind component="boxSubsectionOpt3" role="stop"/>
