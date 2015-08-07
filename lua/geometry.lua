@@ -113,6 +113,9 @@ function branchesDimensions(level_data)
 				level_data.branches[i].separate_text, level_data.border, level_data.box_font)
 			level_data.branches[i].H = level_data.branches[i].dim.rectH
 			level_data.branches[i].W = level_data.branches[i].dim.rectW
+		elseif level_data.branches[i].media_type=='qrcode' then
+			level_data.branches[i].H = (#(branches[i].qr_code_t))*branches[i].square_side
+			level_data.branches[i].W = (#(branches[i].qr_code_t))*branches[i].square_side
 		end
 	end
 	--return level_data
@@ -157,40 +160,34 @@ function textBox(branch, alignment, border, center_x, center_y,
 	end
 end
 
---[[function textBox(text, font, alignment, center_x, center_y, 
-				RGBA_text, RGBA_rRect, RGBA_rRect_border, border)
-	separate_text = separateText(text)
-	--separate_text = hyphenatedText(text, font, width-border*4)
-	dim = textDimensions(separate_text, border, font)
-	
-	dim.rectX = center_x-dim.rectW/2
-	dim.rectY = center_y-dim.rectH/2
-	
-	if border>0 then
-		plotRoundedRect(dim.rectX,        dim.rectY,        dim.rectW,          
-			dim.rectH,          dim.rectR, RGBA_rRect_border)
-		plotRoundedRect(dim.rectX+border, dim.rectY+border, dim.rectW-2*border,
-			dim.rectH-2*border, dim.rectR, RGBA_rRect)
-	else
-		plotRoundedRect(dim.rectX, dim.rectY, dim.rectW, dim.rectH, dim.rectR, RGBA_rRect)
-	end
-	
-	y0 = 0
-	for j = 1,#dim.dy do
-		y0 = y0+dim.dy[j]
-	end
-	y0 = y0/2
-	canvas:attrColor(RGBA_text[1],RGBA_text[2],RGBA_text[3],RGBA_text[4])
-	if alignment=='center' then
-		for j=1,#separate_text do
-			canvas:drawText(center_x-dim.dx[j]/2,center_y - y0,separate_text[j])
-			y0 = y0-dim.dy[j]
+function showQRCode(qr_code_t, x_center, y_center, square_side)
+	--ok,qr_code_t=qrencode.qrcode(url)
+	--if not ok then return end
+	x0 = x_center - (#qr_code_t)/2*square_side
+	y0 = y_center - (#qr_code_t)/2*square_side
+	y = y0
+	canvas:attrColor(255,255,255,255)
+	canvas:drawRect('fill',x0-square_side,y0-square_side,(#qr_code_t+2)*square_side,(#qr_code_t+2)*square_side)
+	for j = 1,#qr_code_t do
+		x = x0
+		for k = 1,#(qr_code_t[j]) do
+			if qr_code_t[j][k]<0 then
+				canvas:drawRect('fill',x,y,square_side,square_side)
+			end
+			x = x + square_side
 		end
-	elseif alignment=='left' then
-		x0 = center_x - dim.max_x/2
-		for j=1,#separate_text do
-			canvas:drawText(x0,center_y - y0,separate_text[j])
-			y0 = y0-dim.dy[j]
-		end
+		y = y + square_side
 	end
-end]]
+	y = y0
+	canvas:attrColor(0,0,0,255)
+	for j = 1,#qr_code_t do
+		x = x0
+		for k = 1,#(qr_code_t[j]) do
+			if qr_code_t[j][k]>0 then
+				canvas:drawRect('fill',x,y,square_side,square_side)
+			end
+			x = x + square_side
+		end
+		y = y + square_side
+	end
+end

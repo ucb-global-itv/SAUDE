@@ -20,15 +20,6 @@ function separateText(text)
 	return separate_text
 end
 
-function removeExtraSpaces(text)
-	L = text:len()+1
-	while text:len()<L do
-		L = text:len()
-		text = text:gsub('  ',' ')
-	end
-	return text
-end
-
 --[[ @doc Function to find words starting from the 
 position 'first_index' in the string 'str'. If the 
 character at position 'first_index' is not a valid
@@ -110,13 +101,16 @@ function separarSilabasPalavra(palavra)
 		number of consonants]]
 		str = palavra:sub(j[1]+1,j[2]-1)
 		_,c = str:gsub('[' .. consoantes .. ']','')
-		if c==0 then -- @doc If there are no consonants, put everything in syllable
+		-- @doc If there are no consonants, put everything in syllable
+		if c==0 then
 			table.insert(silabas,palavra:sub(i,j[2]))
 			i = j[2]+1
-		elseif c==1 then -- @doc If there is one consonant, rule 1 must be followed
+		-- @doc If there is one consonant, rule 1 must be followed
+		elseif c==1 then
 			table.insert(silabas,palavra:sub(i,j[1]))
 			i = j[1]+1
-		else -- @doc If there is more than one consonant, check for consonant-separation exceptions
+		-- @doc If there is more than one consonant, check for consonant-separation exceptions
+		else
 			for k=1,4 do
 				grupos_pos[k] = str:find('[' .. grupos[k] .. ']')
 			end
@@ -208,3 +202,14 @@ function separarSilabasTexto(texto)
 	end
 	return palavras
 end]]
+
+--[[
+function removeExtraSpaces(text)
+	L = text:len()+1
+	while text:len()<L do
+		L = text:len()
+		text = text:gsub('  ',' ')
+	end
+	return text
+end
+]]

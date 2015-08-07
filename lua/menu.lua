@@ -4,10 +4,11 @@ dofile("geometry.lua")
 dofile("mapa.lua")
 require "http"
 dofile("html_parsing.lua")
-dofile("html_options.lua")
+--dofile("html_options.lua")
 
 level_data  = {}
 current_level_index = {0,0,0}
+is_downloading = false
 
 function printt(t)
 	str = t[1]
@@ -24,18 +25,6 @@ function clear_canvas(W, H)
 end
 
 function draw_canvas(level_data)
-	if level_data.focus>1 then
-		canvas:compose(45, 1,  level_data.arrow_up)
-	end
-	if level_data.focus<(#level_data.branches) then
-		canvas:compose(45, 53, level_data.arrow_down)
-	end
-	if level_data.level>1 then
-		canvas:compose(1, 46,  level_data.arrow_left)
-	end
-	if level_data.has_branches then
-		canvas:compose(53, 46, level_data.arrow_right)
-	end
 	cur_y = level_data.y
 	for i=1,#level_data.branches do 
 		if cur_y + level_data.branches[i].H > 0 and cur_y < level_data.H then
@@ -57,9 +46,25 @@ function draw_canvas(level_data)
 						level_data.x, cur_y+level_data.branches[i].H/2,
 						{255,255,255,255}, {90,90,90,255}, {161,161,161,255})
 				end
+			elseif level_data.branches[i].media_type=='qrcode' then
+				showQRCode(level_data.branches[i].qr_code_t,
+					level_data.x, cur_y+level_data.branches[i].H/2,
+					level_data.branches[i].square_side)
 			end
 		end
 		cur_y = cur_y+level_data.branches[i].H+level_data.y_gap
+	end
+	if level_data.focus>1 then
+		canvas:compose(49, level_data.H-140,  level_data.arrow_up)
+	end
+	if level_data.focus<(#level_data.branches) then
+		canvas:compose(49, level_data.H-56, level_data.arrow_down)
+	end
+	if level_data.level>1 then
+		canvas:compose(1, level_data.H-90,  level_data.arrow_left)
+	end
+	if level_data.has_branches then
+		canvas:compose(81, level_data.H-90, level_data.arrow_right)
 	end
 	canvas:flush()
 end
@@ -69,9 +74,12 @@ function animate_canvas(level_data, anim_dir)
 	local max_s = 25
 	if anim_dir=="DOWN" or anim_dir=="UP" then
 		local steps = 1
-		local total_y = level_data.branches[level_data.focus].H+level_data.y_gap
+		--local total_y = level_data.branches[level_data.focus].H+level_data.y_gap
+		local total_y = 0
+		if anim_dir=="UP" then total_y = level_data.branches[level_data.focus-1].H+level_data.y_gap
+		else total_y = level_data.branches[level_data.focus].H+level_data.y_gap end
 		local dy = total_y/steps
-		while math.floor(dy)>max_d and steps < max_s do
+		while math.floor(dy+0.5)>max_d and steps < max_s do
 			steps = steps+1
 			dy = total_y/steps
 		end
@@ -105,22 +113,28 @@ end
 htmlTableAnalysis = {}
 
 function htmlCallback(header, body)
-	if body=='' then return end
-	est_info = htmlToTable(body, htmlTableAnalysis.delims, htmlTableAnalysis.searches)
-	for j = 1,#htmlTableAnalysis.concat do
-		c = htmlTableAnalysis.concat[j]
-		tableValueConcat(est_info, htmlTableAnalysis.searches[c.t_ind],c.conc)
+	if body=='' then
+		search_tree = {create_node('No internet connection available','txt')}
+	else
+		est_info = htmlToTable(body, htmlTableAnalysis.delims)
+		for j = 1,#htmlTableAnalysis.prefix do
+			c = htmlTableAnalysis.prefix[j]
+			tableValuePrefix(est_info, c.f_name, c.add)
+		end
+		for j = 1,#htmlTableAnalysis.sufix do
+			c = htmlTableAnalysis.sufix[j]
+			tableValueSufix(est_info, c.f_name, c.add)
+		end
+		for j = 1,#htmlTableAnalysis.subs do
+			c = htmlTableAnalysis.subs[j]
+			tableValueSubs(est_info, c.f_name, c.inputs, c.outputs)
+		end
+		search_tree = tableToNodes(est_info,
+									htmlTableAnalysis.node_ind, 
+									htmlTableAnalysis.branch_ind,
+									htmlTableAnalysis.sub_branch_ind,
+									htmlTableAnalysis.sub_branch_type)
 	end
-	for j = 1,#htmlTableAnalysis.subs do
-		s = htmlTableAnalysis.subs[j]
-		tableValueSubs(est_info, htmlTableAnalysis.searches[s.t_ind], s.inputs, s.outputs)
-	end
-	ordering_search = htmlTableAnalysis.searches[htmlTableAnalysis.main_search_ind]
-	info_searches = {}
-	for j = 1,#htmlTableAnalysis.info_search_ind do
-		info_searches[j] = htmlTableAnalysis.searches[htmlTableAnalysis.info_search_ind[j]]
-	end
-	search_tree = tableToNodes(est_info, ordering_search, info_searches)
 	current_level_index[3] = app_tree.level
 	app_tree.level = current_level_index[1]
 	tree_node = read_node(app_tree)
@@ -131,10 +145,46 @@ function htmlCallback(header, body)
 		clear_canvas(level_data.W, level_data.H)
 		draw_canvas(level_data)
 	end
+	is_downloading = false
 end
+--[[
+function htmlCallback(header, body)
+	if body=='' then
+		search_tree = {create_node('No internet connection available','txt')}
+	else
+		est_info = htmlToTable(body, htmlTableAnalysis.delims)
+		--est_info = htmlToTable(body, htmlTableAnalysis.delims, htmlTableAnalysis.searches)
+		for j = 1,#htmlTableAnalysis.concat do
+			c = htmlTableAnalysis.concat[j]
+			tableValueConcat(est_info, htmlTableAnalysis.searches[c.t_ind],c.conc)
+		end
+		for j = 1,#htmlTableAnalysis.subs do
+			s = htmlTableAnalysis.subs[j]
+			tableValueSubs(est_info, htmlTableAnalysis.searches[s.t_ind], s.inputs, s.outputs)
+		end
+		ordering_search = htmlTableAnalysis[htmlTA.main_search_ind].field_name
+		--ordering_search = htmlTableAnalysis.searches[htmlTableAnalysis.main_search_ind]
+		info_searches = {}
+		for j = 1,#htmlTableAnalysis.info_search_ind do
+			info_searches[j] = htmlTableAnalysis.searches[htmlTableAnalysis.info_search_ind[j] ]
+		end
+		search_tree = tableToNodes(est_info, ordering_search, info_searches)
+	end
+	current_level_index[3] = app_tree.level
+	app_tree.level = current_level_index[1]
+	tree_node = read_node(app_tree)
+	tree_node.branches = search_tree
+	level_data = read_level_data(app_tree)
+	app_tree.level = current_level_index[3]
+	if current_level_index[1]==current_level_index[3] then
+		clear_canvas(level_data.W, level_data.H)
+		draw_canvas(level_data)
+	end
+	is_downloading = false
+end]]
 
-function htmlProcessing(cur_case)
-	htmlTableAnalysis = allHtmlTableAnalysis[cur_case]
+function htmlProcessing(url)
+	htmlTableAnalysis = htmlOptions(url)
 	http.request(htmlTableAnalysis.url, htmlCallback)
 end
 
@@ -147,12 +197,14 @@ function read_level_data(tree_data)
 	level_data.arrow_up    = canvas:new('./img_v1/ARROW_UP.png')
 	level_data.arrow_left  = canvas:new('./img_v1/ARROW_LEFT.png')
 	level_data.arrow_right = canvas:new('./img_v1/ARROW_RIGHT.png')
+	
 	level_data.box_font   = {'Tiresias',22,'bold'}
 	level_data.border = 5
 	level_data.branches = read_branches(tree_node, level_data.border, level_data.box_font)      --level_data.img_nsel, level_data.img_ysel, level_data.text = read_branches(tree_node)
 	level_data.branch_num = #(level_data.branches)
 	if level_data.branch_num > 0 and level_data.branches[1].media_type=='url' then
 		tree_node.branches = {create_node('Downloading data.','txt')}
+		is_downloading = true
 		htmlProcessing(level_data.branches[1].url)
 		level_data.branches = read_branches(tree_node, level_data.border, level_data.box_font)
 		level_data.branch_num = #(level_data.branches)
@@ -245,6 +297,8 @@ function lua_event_handler(evt)
 		if evt.key == 'RED' then
 			event.post {class  = 'ncl', type = 'presentation', action = 'stop'}
 		end
+		if is_downloading==true then return end
+		
 		if level_data.has_branches and level_data.branches[1].media_type=='map' then
 			level_data.branches[1].focus = handler_mapa(evt.key, level_data.W, level_data.H)
 			--printt({'DEBUG',level_data.level,level_data.focus,level_data.branches[1].focus,level_data.branches[1].media_type})

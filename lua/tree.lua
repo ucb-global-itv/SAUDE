@@ -1,6 +1,17 @@
 dofile("text.lua")
 --dofile("geometry.lua")
+qrencode = dofile("qrencode.lua")
 
+--[[ @doc Function to create a new node in the tree. Each
+node is a table containing 2 or 4 fields:
+	media: media to be shown (text, image file name, URL etc)
+	media_type: the media type ('txt' for text, 'img' for an image,
+					'url' for a URL to make a specific search)
+	focus: the value of the currently chosen branch of the node
+	branches: a table containing sub-nodes, or branches
+'focus' and 'branches' are optional. If one of these variables is not 
+given, the current node will not have branches.
+]]
 function create_node(media, media_type, focus, branches)
 	if not(focus) or not(branches) then
 		return {media=media, media_type=media_type}
@@ -32,6 +43,9 @@ function read_branches(tree_node, border, box_font)
 			branches[i].text = cur_media
 		elseif branches[i].media_type == 'url' then
 			branches[i].url = cur_media
+		elseif branches[i].media_type == 'qrcode' then
+			ok,branches[i].qr_code_t=qrencode.qrcode(cur_media)
+			branches[i].square_side = math.floor(200/(#(branches[i].qr_code_t))+0.5)
 		end
 	end
 	return branches
