@@ -252,7 +252,7 @@ function htmlOptions(url)
 		htmlTA.delims[8]  = {str_start="<td><font size=1 face=Verdana,arial color=#003366>", str_end="</font></td>", field_name = "Complemento"}
 		htmlTA.delims[9]  = {str_start="<td><font size=1 face=Verdana,arial color=#003366>", str_end="</font></td>", field_name = "Bairro"}
 		htmlTA.delims[10] = {str_start="<td><font size=1 face=Verdana,arial color=#003366>", str_end="</font></td>", field_name = "CEP"}
-		htmlTA.delims[11] = {str_start="<font color='#003366' face=verdana,arial size=1>", str_end="- IBGE", field_name = "Municipio"}
+		htmlTA.delims[11] = {str_start="<font color='#003366' face=verdana,arial size=1>", str_end=" - IBGE", field_name = "Municipio"}
 		htmlTA.prefix = {}
 		htmlTA.prefix[1] = {f_name="Full_Site",add='Website!http://cnes.datasus.gov.br/Cabecalho_Reduzido_Competencia.asp?VCod_Unidade='}
 		htmlTA.prefix[2] = {f_name="Geo",add='Map!http://cnes.datasus.gov.br/geo.asp?VUnidade='}
@@ -265,8 +265,8 @@ function htmlOptions(url)
 		htmlTA.sufix[3] = {f_name="Numero",add='\n'}
 		htmlTA.sufix[4] = {f_name="Telefone",add='\n'}
 		htmlTA.sufix[5] = {f_name="Bairro",add=', '}
-		htmlTA.sufix[6] = {f_name="CEP",add='\n'}
-		htmlTA.sufix[7] = {f_name="Municipio",add='\n'}
+		--htmlTA.sufix[6] = {f_name="CEP",add='\n'}
+		htmlTA.sufix[6] = {f_name="Municipio",add='\n'}
 		htmlTA.subs = {}
 		htmlTA.node_ind = ""
 		htmlTA.branch_ind = {"Nome","Logradouro","Numero","Bairro","Municipio","Telefone","CEP"}

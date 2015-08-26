@@ -55,16 +55,16 @@ function draw_canvas(level_data)
 		cur_y = cur_y+level_data.branches[i].H+level_data.y_gap
 	end
 	if level_data.focus>1 then
-		canvas:compose(49, level_data.H-140,  level_data.arrow_up)
+		canvas:compose(329, level_data.H-140,  level_data.arrow_up)
 	end
 	if level_data.focus<(#level_data.branches) then
-		canvas:compose(49, level_data.H-56, level_data.arrow_down)
+		canvas:compose(329, level_data.H-56, level_data.arrow_down)
 	end
 	if level_data.level>1 then
-		canvas:compose(1, level_data.H-90,  level_data.arrow_left)
+		canvas:compose(281, level_data.H-90,  level_data.arrow_left)
 	end
 	if level_data.has_branches then
-		canvas:compose(81, level_data.H-90, level_data.arrow_right)
+		canvas:compose(361, level_data.H-90, level_data.arrow_right)
 	end
 	canvas:flush()
 end

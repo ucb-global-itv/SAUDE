@@ -118,6 +118,22 @@ function branchesDimensions(level_data)
 			level_data.branches[i].W = (#(branches[i].qr_code_t))*branches[i].square_side
 		end
 	end
+	if (#level_data.branches)>1 then
+		max_W = level_data.branches[1].W
+		for i = 2,#level_data.branches do
+			if level_data.branches[i].media_type~='txt' then
+				return
+			end
+			if level_data.branches[i].W > max_W then
+				max_W = level_data.branches[i].W
+			end
+		end
+		for i = 1,#level_data.branches do
+			if level_data.branches[i].media_type=='txt' then
+				level_data.branches[i].W = max_W
+			end
+		end
+	end
 	--return level_data
 end
 
@@ -163,8 +179,10 @@ end
 function showQRCode(qr_code_t, x_center, y_center, square_side)
 	--ok,qr_code_t=qrencode.qrcode(url)
 	--if not ok then return end
-	x0 = x_center - (#qr_code_t)/2*square_side
-	y0 = y_center - (#qr_code_t)/2*square_side
+	x0 = x_center - math.floor((#qr_code_t)/2)*square_side
+	y0 = y_center - math.floor((#qr_code_t)/2)*square_side
+	x0 = math.floor(x0+0.5)
+	y0 = math.floor(y0+0.5)
 	y = y0
 	canvas:attrColor(255,255,255,255)
 	canvas:drawRect('fill',x0-square_side,y0-square_side,(#qr_code_t+2)*square_side,(#qr_code_t+2)*square_side)
