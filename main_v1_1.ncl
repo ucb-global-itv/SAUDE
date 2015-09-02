@@ -14,8 +14,8 @@
 			<region id="rg_nlua1"      left="128px" width="420px" top="144px" height="432px" zIndex="4"/>
 			
 			<!-- Regions for video menu -->
-			<region id="rg_main_vid_small" left="871px" top="479px" width="256px"  height="144px" zIndex="1"/>
-			<region id="rg_nlua2"          left="0px"   top="0px"   width="1280px" height="720px" zIndex="2"/>
+			<region id="rg_main_vid_small" left="871px" top="479px" width="256px"  height="144px" zIndex="2"/>
+			<region id="rg_nlua2"          left="0px"   top="0px"   width="1280px" height="720px" zIndex="1"/>
 			<region id="rg_online_vid"     left="153px" top="97px"  width="640px"  height="360px" zIndex="3"/>
 		</regionBase>
 		<descriptorBase>
