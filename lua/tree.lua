@@ -1,5 +1,5 @@
-dofile("text.lua")
 --dofile("geometry.lua")
+dofile("text.lua")
 qrencode = dofile("qrencode.lua")
 
 --[[ @doc Function to create a new node in the tree. Each
@@ -37,8 +37,9 @@ function read_branches(tree_node, border, box_font)
 		branches[i].media_type = tree_node.branches[i].media_type
 		cur_media = tree_node.branches[i].media
 		if branches[i].media_type == 'img' then
-			branches[i].img_ysel = canvas:new('./img_v1/' .. cur_media .. '_FOCUS.png')
-			branches[i].img_nsel = canvas:new('./img_v1/' .. cur_media .. '.png')
+			branches[i].img_ysel = canvas:new('../img_v1_2/' .. cur_media .. '_FOCUS.png') --branches[i].img_ysel = canvas:new('./img_v1_2/' .. cur_media .. '_FOCUS.png')
+			branches[i].img_nsel = canvas:new('../img_v1_2/' .. cur_media .. '.png') --branches[i].img_nsel = canvas:new('./img_v1_2/' .. cur_media .. '.png')
+			branches[i].media = cur_media
 		elseif branches[i].media_type == 'txt' then
 			branches[i].text = cur_media
 		elseif branches[i].media_type == 'url' then

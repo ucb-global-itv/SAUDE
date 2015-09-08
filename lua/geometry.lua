@@ -103,8 +103,17 @@ end
 function branchesDimensions(level_data)
 	for i = 1,#level_data.branches do
 		if level_data.branches[i].media_type=='img' then
-			level_data.branches[i].W, level_data.branches[i].H =
-				level_data.branches[i].img_ysel:attrSize()
+			j = 1
+			n = img_sizes[j].name
+			cur_media = level_data.branches[i].media
+			while n~=cur_media do
+				j = j+1
+				n = img_sizes[j].name
+			end
+			level_data.branches[i].W = img_sizes[j].W
+			level_data.branches[i].H = img_sizes[j].H
+			--level_data.branches[i].W, level_data.branches[i].H =
+				--level_data.branches[i].img_ysel:attrSize()
 		elseif level_data.branches[i].media_type=='txt' then
 			--level_data.branches[i].separate_text = separateText(level_data.branches[i].text)
 			level_data.branches[i].separate_text = hyphenatedText(branches[i].text,

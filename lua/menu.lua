@@ -1,14 +1,15 @@
 dofile("tree.lua")
 dofile("menu_buttons.lua")
 dofile("geometry.lua")
-dofile("mapa.lua")
 require "http"
 dofile("html_parsing.lua")
---dofile("html_options.lua")
+-- dofile("html_options.lua")
+-- dofile("mapa.lua")
 
 level_data  = {}
 current_level_index = {0,0,0}
 is_downloading = false
+is_moving = false
 
 function printt(t)
 	str = t[1]
@@ -69,46 +70,95 @@ function draw_canvas(level_data)
 	canvas:flush()
 end
 
+steps = 0
+dx = 0
+dy = 0
+animation_level_data = {}
 function animate_canvas(level_data, anim_dir)
-	local max_d = 11
-	local max_s = 25
 	if anim_dir=="DOWN" or anim_dir=="UP" then
-		local steps = 1
+		max_d = 11
+		max_s = 10
+		steps = 1
 		--local total_y = level_data.branches[level_data.focus].H+level_data.y_gap
 		local total_y = 0
 		if anim_dir=="UP" then total_y = level_data.branches[level_data.focus-1].H+level_data.y_gap
 		else total_y = level_data.branches[level_data.focus].H+level_data.y_gap end
-		local dy = total_y/steps
+		dy = total_y/steps
 		while math.floor(dy+0.5)>max_d and steps < max_s do
 			steps = steps+1
 			dy = total_y/steps
 		end
 		if anim_dir=="UP" then dy = -dy end
-		while steps>0 do
+		animation_level_data = level_data
+		is_moving = true
+		animate_canvas_vertically()
+		--[[while steps>0 do
 			steps = steps - 1
 			level_data.y = level_data.y+dy
 			clear_canvas(level_data.W, level_data.H)
 			draw_canvas(level_data)
-		end
-		return level_data
+		end]]
 	elseif anim_dir=="LEFT" or anim_dir=="RIGHT" then
-		local steps = 1
+		max_d = 11
+		max_s = 14
+		steps = 1
 		local total_x = level_data.branches[level_data.focus].W+level_data.x_gap
-		local dx = total_x/steps
+		dx = total_x/steps
 		while math.floor(dx)>max_d and steps < max_s do
 			steps = steps+1
 			dx = total_x/steps
 		end
 		if anim_dir=="LEFT" then dx = -dx end
-		while steps>0 do
+		animation_level_data = level_data
+		is_moving = true
+		animate_canvas_horizontally()
+		--[[while steps>0 do
 			steps = steps - 1
 			level_data.x = level_data.x+dx
 			clear_canvas(level_data.W, level_data.H)
 			draw_canvas(level_data)
-		end
-		return level_data
+		end]]
 	end
 end
+
+function animate_canvas_vertically()
+	if steps>0 then
+		steps = steps - 1
+		animation_level_data.y = animation_level_data.y+dy
+		clear_canvas(animation_level_data.W, animation_level_data.H)
+		draw_canvas(animation_level_data)
+		event.timer(30,animate_canvas_vertically)
+	else
+		is_moving = false
+	end
+end
+
+function animate_canvas_horizontally()
+	if steps>0 then
+		steps = steps - 1
+		animation_level_data.x = animation_level_data.x+dx
+		clear_canvas(animation_level_data.W, animation_level_data.H)
+		draw_canvas(animation_level_data)
+		event.timer(30,animate_canvas_horizontally)
+	else
+		is_moving = false
+		local tree_node = read_node(app_tree)
+		tree_node.focus = level_data.focus
+		if dx>0 then -- ANIMATION TO THE RIGHT
+			app_tree.level = app_tree.level-1
+		else -- ANIMATION TO THE LEFT
+			app_tree.level = app_tree.level+1
+		end
+		level_data = read_level_data(app_tree)
+		clear_canvas(level_data.W, level_data.H)
+		if level_data.has_branches and level_data.branches[1].media_type=='map' then
+			level_data.branches[1].focus = handler_mapa('start', level_data.W, level_data.H)
+		else
+			draw_canvas(level_data)
+		end
+	end
+end
+
 
 htmlTableAnalysis = {}
 
@@ -191,12 +241,18 @@ end
 function read_level_data(tree_data)
 	local level_data = {}
 	local tree_node = read_node(tree_data)
-	level_data.W, level_data.H = canvas:attrSize()
+	
+	level_data.W = luaW -- Defined in menu_buttons.lua
+	level_data.H = luaH -- Defined in menu_buttons.lua
+	-- These variables were defined to avoid using the function canvas:attrSize(),
+	-- which is poorly defined in several Ginga NCL implementations:
+	-- level_data.W, level_data.H = canvas:attrSize()
+	
 	level_data.media_type = tree_node.media_type
-	level_data.arrow_down  = canvas:new('./img_v1/ARROW_DOWN.png')
-	level_data.arrow_up    = canvas:new('./img_v1/ARROW_UP.png')
-	level_data.arrow_left  = canvas:new('./img_v1/ARROW_LEFT.png')
-	level_data.arrow_right = canvas:new('./img_v1/ARROW_RIGHT.png')
+	level_data.arrow_down  = canvas:new('../img_v1_2/ARROW_DOWN.png')  --level_data.arrow_down  = canvas:new('./img_v1_2/ARROW_DOWN.png')
+	level_data.arrow_up    = canvas:new('../img_v1_2/ARROW_UP.png')    --level_data.arrow_up    = canvas:new('./img_v1_2/ARROW_UP.png')
+	level_data.arrow_left  = canvas:new('../img_v1_2/ARROW_LEFT.png')  --level_data.arrow_left  = canvas:new('./img_v1_2/ARROW_LEFT.png')
+	level_data.arrow_right = canvas:new('../img_v1_2/ARROW_RIGHT.png') --level_data.arrow_right = canvas:new('./img_v1_2/ARROW_RIGHT.png')
 	
 	level_data.box_font   = {'Tiresias',22,'bold'}
 	level_data.border = 5
@@ -210,9 +266,9 @@ function read_level_data(tree_data)
 		level_data.branch_num = #(level_data.branches)
 		current_level_index = {tree_data.level, tree_node.focus}
 	end
-	branchesDimensions(level_data)
 	level_data.level = tree_data.level
 	level_data.focus = tree_node.focus
+	branchesDimensions(level_data)
 	if tree_node.focus~=nil then
 		level_data.has_branches = tree_node.branches[1].focus~=nil
 	else
@@ -245,20 +301,21 @@ function read_level_data(tree_data)
 end
 
 function main_menu_handler(evt_key)
+	if is_moving == true then return end
 	if evt_key == 'CURSOR_DOWN' then
 		if level_data.focus<(#level_data.branches) then
 			level_data.focus = level_data.focus+1
-			level_data = animate_canvas(level_data,"UP")
+			animate_canvas(level_data,"UP")
 		end
 	elseif evt_key == 'CURSOR_UP' then
 		if level_data.focus>1 then
 			level_data.focus = level_data.focus-1
-			level_data = animate_canvas(level_data,"DOWN")
+			animate_canvas(level_data,"DOWN")
 		end
 	elseif evt_key == 'CURSOR_RIGHT' then
 		if level_data.has_branches then
-			level_data = animate_canvas(level_data,"LEFT")
-			local tree_node = read_node(app_tree)
+			animate_canvas(level_data,"LEFT")
+			--[[local tree_node = read_node(app_tree)
 			tree_node.focus = level_data.focus
 			app_tree.level = app_tree.level+1
 			level_data = read_level_data(app_tree)
@@ -267,12 +324,12 @@ function main_menu_handler(evt_key)
 				level_data.branches[1].focus = handler_mapa('start', level_data.W, level_data.H)
 			else
 				draw_canvas(level_data)
-			end
+			end]]
 		end
 	elseif evt_key == 'CURSOR_LEFT' then
 		if level_data.level>1 then
-			level_data = animate_canvas(level_data,"RIGHT")
-			local tree_node = read_node(app_tree)
+			animate_canvas(level_data,"RIGHT")
+			--[[local tree_node = read_node(app_tree)
 			tree_node.focus = level_data.focus
 			app_tree.level = app_tree.level-1
 			level_data = read_level_data(app_tree)
@@ -281,7 +338,7 @@ function main_menu_handler(evt_key)
 				level_data.branches[1].focus = handler_mapa('start', level_data.W, level_data.H)
 			else
 				draw_canvas(level_data)
-			end
+			end]]
 		end
 	end
 end
@@ -289,15 +346,15 @@ end
 function lua_event_handler(evt)
 	if((evt.class == 'ncl') and (evt.type == 'presentation')) and (evt.action == 'start') then
 		level_data = read_level_data(app_tree)
-		clear_canvas(level_data.W, level_data.H)
+		-- clear_canvas(level_data.W, level_data.H)
 		draw_canvas(level_data)
 	end
 	
 	if evt.class == 'key' and evt.type == 'press' then
+		if is_downloading==true then return end
 		if evt.key == 'RED' then
 			event.post {class  = 'ncl', type = 'presentation', action = 'stop'}
 		end
-		if is_downloading==true then return end
 		
 		if level_data.has_branches and level_data.branches[1].media_type=='map' then
 			level_data.branches[1].focus = handler_mapa(evt.key, level_data.W, level_data.H)

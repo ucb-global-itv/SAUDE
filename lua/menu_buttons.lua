@@ -1,3 +1,6 @@
+luaW = 420
+luaH = 432
+
 app_tree = {level=1, root=create_node('root', 'root', 1,{
 	create_node('BTN_1','img',1,{
 		create_node('BTN_1_1','img',1,{
@@ -100,6 +103,67 @@ app_tree = {level=1, root=create_node('root', 'root', 1,{
 		create_node('BTN_3_7','img',1,{create_node('http://cnes.datasus.gov.br/Mod_Ind_Especialidades_Listar.asp?VTipo=134&VListar=1&VEstado=15&VMun=&VComp=&VTerc=&VServico=&VClassificacao=&VAmbu=&VAmbuSUS=&VHosp=&VHospSus=','url')})})
 	})
 }
+
+img_sizes = {{name="APP_LOGO",W=244,H=147},
+			{name="ARROW_DOWN",W=40,H=56},
+			{name="ARROW_LEFT",W=56,H=40},
+			{name="ARROW_RIGHT",W=56,H=40},
+			{name="ARROW_UP",W=40,H=56},
+			{name="BTN_1",W=158,H=123},
+			{name="BTN_1_1",W=158,H=123},
+			{name="BTN_1_1_1",W=123,H=123},
+			{name="BTN_1_1_10",W=123,H=123},
+			{name="BTN_1_1_2",W=123,H=123},
+			{name="BTN_1_1_3",W=123,H=123},
+			{name="BTN_1_1_4",W=123,H=123},
+			{name="BTN_1_1_5",W=123,H=123},
+			{name="BTN_1_1_6",W=123,H=123},
+			{name="BTN_1_1_7",W=123,H=123},
+			{name="BTN_1_1_8",W=123,H=123},
+			{name="BTN_1_1_9",W=123,H=123},
+			{name="BTN_1_2",W=158,H=123},
+			{name="BTN_1_2_1",W=123,H=123},
+			{name="BTN_1_2_2",W=123,H=123},
+			{name="BTN_1_2_4",W=123,H=123},
+			{name="BTN_1_2_5",W=123,H=123},
+			{name="BTN_1_3",W=158,H=123},
+			{name="BTN_1_3_4",W=123,H=123},
+			{name="BTN_1_3_6",W=123,H=123},
+			{name="BTN_2",W=158,H=123},
+			{name="BTN_2_1",W=158,H=123},
+			{name="BTN_2_1_1",W=123,H=123},
+			{name="BTN_2_1_2",W=123,H=123},
+			{name="BTN_2_1_3",W=123,H=123},
+			{name="BTN_2_1_4",W=123,H=123},
+			{name="BTN_2_1_5",W=123,H=123},
+			{name="BTN_2_1_5_1",W=123,H=123},
+			{name="BTN_2_1_5_2",W=123,H=123},
+			{name="BTN_2_1_5_3",W=123,H=123},
+			{name="BTN_2_2",W=158,H=123},
+			{name="BTN_2_2_1",W=123,H=123},
+			{name="BTN_2_2_2",W=123,H=123},
+			{name="BTN_2_2_3",W=123,H=123},
+			{name="BTN_2_2_4",W=123,H=123},
+			{name="BTN_2_3",W=158,H=123},
+			{name="BTN_2_3_1",W=123,H=123},
+			{name="BTN_2_3_2",W=123,H=123},
+			{name="BTN_3",W=158,H=123},
+			{name="BTN_3_1",W=123,H=123},
+			{name="BTN_3_2",W=123,H=123},
+			{name="BTN_3_3",W=123,H=123},
+			{name="BTN_3_4",W=123,H=123},
+			{name="BTN_3_5",W=123,H=123},
+			{name="BTN_3_6",W=123,H=123},
+			{name="BTN_3_7",W=123,H=123},
+			{name="BTN_MENU",W=138,H=48},
+			{name="BTN_MOVIE",W=138,H=48},
+			{name="BTN_STOP",W=138,H=48},
+			{name="BTN_movie1",W=123,H=123},
+			{name="BTN_movie2",W=123,H=123},
+			{name="BTN_movie3",W=123,H=123},
+			{name="BTN_movie4",W=123,H=123},
+			{name="BTN_movie5",W=123,H=123},
+			{name="BTN_movie6",W=123,H=123}}
 
 -- Second working version
 -- URLs depend on the 'html_option.lua' file
